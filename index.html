@@ -145,7 +145,6 @@
     async function type(text) {
         for (let char of text) {
             output.innerText += char;
-            // A kurzort mindig az utolsó karakter után tartjuk
             output.appendChild(cursor); 
             await new Promise(r => setTimeout(r, 50));
         }
@@ -163,16 +162,16 @@
         await new Promise(r => setTimeout(r, 800));
         functionBox.style.display = 'block';
         
-        // Pörgetés indítása
+
         const itemHeight = 80;
         const stopAt = (fullList.length - 1) * itemHeight;
         
-        // Kis késleltetés a látvány kedvéért
+
         setTimeout(() => {
             slotList.style.transform = `translateY(-${stopAt}px)`;
         }, 500);
 
-        // Megvárjuk a pörgetést (5 másodperc a CSS-ben)
+
         await new Promise(r => setTimeout(r, 6000));
 
         await type("\nRemélem tetszett ez a kis bemutatkozás rólam.");
